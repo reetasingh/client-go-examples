@@ -13,6 +13,8 @@ import (
 
 func main() {
 
+
+    // get kubeconfig file
     var kubeconfig *string
     homeDir := homedir.HomeDir()
     fmt.Println(homeDir)
@@ -33,11 +35,14 @@ func main() {
 	if err != nil {
 		panic(err.Error())
 	}
+
+	// get pods
 	pods, err := clientset.CoreV1().Pods("").List(context.TODO(), metav1.ListOptions{})
 	if err != nil {
 		panic(err.Error())
 	}
 
+    // print details
 	fmt.Printf("There are %d pods in the cluster\n", len(pods.Items))
 
 	for i := 1; i < len(pods.Items); i++ {
