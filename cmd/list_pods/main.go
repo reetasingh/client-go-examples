@@ -48,8 +48,15 @@ func main() {
 	for i := 1; i < len(pods.Items); i++ {
 	    pod := pods.Items[i]
         fmt.Printf("pod name %s\n", pod.ObjectMeta.Name)
+        fmt.Printf("pod namespace %s\n", pod.ObjectMeta.Namespace)
 
-        //containers := pod.PodStatus.Message
-        //fmt.Printf("Container name %s\n", len(containers))
+        containers := pod.Spec.Containers
+        fmt.Printf("Number of containers = %d\n", len(containers))
+
+        for j := range containers {
+            fmt.Printf("Container Image %s\n", containers[j].Image)
+        }
+
+        fmt.Println("==================")
 	}
 }
