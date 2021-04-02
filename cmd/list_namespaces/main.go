@@ -35,27 +35,18 @@ func main() {
 		panic(err.Error())
 	}
 
-	// List pods
-	pods, err := clientset.CoreV1().Pods("").List(context.TODO(), metav1.ListOptions{})
+	// List namespaces
+	namespaces, err := clientset.CoreV1().Namespaces().List(context.TODO(), metav1.ListOptions{})
 	if err != nil {
 		panic(err.Error())
 	}
 
-	// print details of pod
-	fmt.Printf("There are %d pods in the cluster\n", len(pods.Items))
+	for i := 1; i < len(namespaces.Items); i++ {
+		namespace := namespaces.Items[i]
+		fmt.Printf("Namespace %s\n", namespace.ObjectMeta.Name)
+		fmt.Printf("Status %s\n", namespace.Status)
+		fmt.Printf("ResourceVersion %s\n", namespace.ResourceVersion)
 
-	for i := 1; i < len(pods.Items); i++ {
-		pod := pods.Items[i]
-		fmt.Printf("pod name %s\n", pod.ObjectMeta.Name)
-		fmt.Printf("pod namespace %s\n", pod.ObjectMeta.Namespace)
-
-		containers := pod.Spec.Containers
-		fmt.Printf("Number of containers = %d\n", len(containers))
-
-		for j := range containers {
-			fmt.Printf("Container Image %s\n", containers[j].Image)
-		}
-
-		fmt.Println("==================")
+		fmt.Printf("===========")
 	}
 }
