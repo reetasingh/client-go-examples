@@ -49,7 +49,7 @@ func main() {
 	    pod := pods.Items[i]
         fmt.Printf("pod name %s\n", pod.ObjectMeta.Name)
 
-        containers := pod.PodSpec.Containers
-        fmt.Printf("Container name %s\n", len(containers))
+        //containers := pod.PodStatus.Message
+        //fmt.Printf("Container name %s\n", len(containers))
 	}
 }
