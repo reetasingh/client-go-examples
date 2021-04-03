@@ -36,19 +36,18 @@ func main() {
 	}
 
 	// List Secret
-	secrets, err := clientset.AppsV1().Deployments("").List(context.TODO(), metav1.ListOptions{})
+	deployments, err := clientset.AppsV1().Deployments("").List(context.TODO(), metav1.ListOptions{})
 	if err != nil {
 		panic(err.Error())
 	}
 
-	for i := 1; i < len(secrets.Items); i++ {
-		secret := secrets.Items[i]
-		fmt.Printf("Secret name %s\n", secret.ObjectMeta.Name)
-		fmt.Printf("Namespace %s\n", secret.ObjectMeta.Namespace)
-		fmt.Printf("ResourceVersion %s\n", secret.ResourceVersion)
-		fmt.Printf("Data %s\n", secret.Data)
-		fmt.Printf("Labels %s\n", secret.Labels)
-		fmt.Printf("Annotations %s\n", secret.Annotations)
+	for i := 1; i < len(deployments.Items); i++ {
+		deployment := deployments.Items[i]
+		fmt.Printf("Deployment name %s\n", deployment.ObjectMeta.Name)
+		fmt.Printf("Namespace %s\n", deployment.ObjectMeta.Namespace)
+		fmt.Printf("ResourceVersion %s\n", deployment.ResourceVersion)
+		fmt.Printf("Labels %s\n", deployment.Labels)
+		fmt.Printf("Annotations %s\n", deployment.Annotations)
 		fmt.Printf("===========")
 	}
 }
