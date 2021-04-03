@@ -35,7 +35,7 @@ func main() {
 		panic(err.Error())
 	}
 
-	// List Secret
+	// List Deployments
 	deployments, err := clientset.AppsV1().Deployments("").List(context.TODO(), metav1.ListOptions{})
 	if err != nil {
 		panic(err.Error())
