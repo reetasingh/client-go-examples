@@ -35,18 +35,18 @@ func main() {
 		panic(err.Error())
 	}
 
-	// List configmaps
-	configmaps, err := clientset.CoreV1().ConfigMaps("").List(context.TODO(), metav1.ListOptions{})
+	// List Secret
+	secrets, err := clientset.CoreV1().Secrets("").List(context.TODO(), metav1.ListOptions{})
 	if err != nil {
 		panic(err.Error())
 	}
 
-	for i := 1; i < len(configmaps.Items); i++ {
-		configMap := configmaps.Items[i]
-		fmt.Printf("ConfigMap %s\n", configMap.ObjectMeta.Name)
-		fmt.Printf("Data %s\n", configMap.Data)
-		fmt.Printf("namespace %s\n", configMap.ObjectMeta.Namespace)
-		fmt.Printf("ResourceVersion %s\n", configMap.ResourceVersion)
+	for i := 1; i < len(secrets.Items); i++ {
+		secret := secrets.Items[i]
+		fmt.Printf("Secret %s\n", secret.ObjectMeta.Name)
+		fmt.Printf("Data %s\n", secret.Data)
+		fmt.Printf("namespace %s\n", secret.ObjectMeta.Namespace)
+		fmt.Printf("ResourceVersion %s\n", secret.ResourceVersion)
 
 		fmt.Printf("===========")
 	}
