@@ -43,11 +43,12 @@ func main() {
 
 	for i := 1; i < len(configmaps.Items); i++ {
 		configMap := configmaps.Items[i]
-		fmt.Printf("ConfigMap %s\n", configMap.ObjectMeta.Name)
-		fmt.Printf("Data %s\n", configMap.Data)
-		fmt.Printf("namespace %s\n", configMap.ObjectMeta.Namespace)
+		fmt.Printf("ConfigMap name %s\n", configMap.ObjectMeta.Name)
+		fmt.Printf("Namespace %s\n", configMap.ObjectMeta.Namespace)
 		fmt.Printf("ResourceVersion %s\n", configMap.ResourceVersion)
-
+		fmt.Printf("Data %s\n", configMap.Data)
+		fmt.Printf("Labels %s\n", configMap.Labels)
+		fmt.Printf("Annotations %s\n", configMap.Annotations)
 		fmt.Printf("===========")
 	}
 }

@@ -43,10 +43,11 @@ func main() {
 
 	for i := 1; i < len(namespaces.Items); i++ {
 		namespace := namespaces.Items[i]
-		fmt.Printf("Namespace %s\n", namespace.ObjectMeta.Name)
+		fmt.Printf("Namespace name %s\n", namespace.ObjectMeta.Name)
 		fmt.Printf("Status %s\n", namespace.Status)
 		fmt.Printf("ResourceVersion %s\n", namespace.ResourceVersion)
-
+		fmt.Printf("Labels %s\n", namespace.Labels)
+		fmt.Printf("Annotations %s\n", namespace.Annotations)
 		fmt.Printf("===========")
 	}
 }

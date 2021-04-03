@@ -43,11 +43,12 @@ func main() {
 
 	for i := 1; i < len(secrets.Items); i++ {
 		secret := secrets.Items[i]
-		fmt.Printf("Secret %s\n", secret.ObjectMeta.Name)
-		fmt.Printf("Data %s\n", secret.Data)
-		fmt.Printf("namespace %s\n", secret.ObjectMeta.Namespace)
+		fmt.Printf("Secret name %s\n", secret.ObjectMeta.Name)
+		fmt.Printf("Namespace %s\n", secret.ObjectMeta.Namespace)
 		fmt.Printf("ResourceVersion %s\n", secret.ResourceVersion)
-
+		fmt.Printf("Data %s\n", secret.Data)
+		fmt.Printf("Labels %s\n", secret.Labels)
+		fmt.Printf("Annotations %s\n", secret.Annotations)
 		fmt.Printf("===========")
 	}
 }
