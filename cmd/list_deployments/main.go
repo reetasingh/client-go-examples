@@ -41,7 +41,7 @@ func main() {
 		panic(err.Error())
 	}
 
-	for i := 1; i < len(deployments.Items); i++ {
+	for i := 0; i < len(deployments.Items); i++ {
 		deployment := deployments.Items[i]
 		fmt.Printf("Deployment name %s\n", deployment.ObjectMeta.Name)
 		fmt.Printf("Namespace %s\n", deployment.ObjectMeta.Namespace)

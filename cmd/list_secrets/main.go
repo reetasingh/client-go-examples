@@ -41,7 +41,7 @@ func main() {
 		panic(err.Error())
 	}
 
-	for i := 1; i < len(secrets.Items); i++ {
+	for i := 0; i < len(secrets.Items); i++ {
 		secret := secrets.Items[i]
 		fmt.Printf("Secret name %s\n", secret.ObjectMeta.Name)
 		fmt.Printf("Namespace %s\n", secret.ObjectMeta.Namespace)

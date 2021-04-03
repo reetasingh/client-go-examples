@@ -44,7 +44,7 @@ func main() {
 	// print details of pod
 	fmt.Printf("There are %d pods in the cluster\n", len(pods.Items))
 
-	for i := 1; i < len(pods.Items); i++ {
+	for i := 0; i < len(pods.Items); i++ {
 		pod := pods.Items[i]
 		fmt.Printf("Pod name %s\n", pod.ObjectMeta.Name)
 		fmt.Printf("Namespace %s\n", pod.ObjectMeta.Namespace)

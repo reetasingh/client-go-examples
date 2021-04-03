@@ -41,7 +41,7 @@ func main() {
 		panic(err.Error())
 	}
 
-	for i := 1; i < len(namespaces.Items); i++ {
+	for i := 0; i < len(namespaces.Items); i++ {
 		namespace := namespaces.Items[i]
 		fmt.Printf("Namespace name %s\n", namespace.ObjectMeta.Name)
 		fmt.Printf("Status %s\n", namespace.Status)

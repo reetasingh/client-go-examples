@@ -41,7 +41,7 @@ func main() {
 		panic(err.Error())
 	}
 
-	for i := 1; i < len(configmaps.Items); i++ {
+	for i := 0; i < len(configmaps.Items); i++ {
 		configMap := configmaps.Items[i]
 		fmt.Printf("ConfigMap name %s\n", configMap.ObjectMeta.Name)
 		fmt.Printf("Namespace %s\n", configMap.ObjectMeta.Namespace)
