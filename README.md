@@ -3,21 +3,26 @@
 I created this repo as I wanted to learn using client-go for accessing Kubernetes API
 
 # Instructions to use
-go get 
 
-List pods
+Install
+```bash
+go get github.com/reetasingh/client-go-examples
+```
+
+List Pods
 
 ```bash
 reetasingh:practice-client-go reetasingh$ go run cmd/list_pods/main.go 
 ```
 
-List namespaces
+List Namespaces
 
 ```bash
 reetasingh:practice-client-go reetasingh$ go run cmd/list_namespaces/main.go 
 
 ```
 
+for other actions check the ```cmd``` directory
 
 
 
