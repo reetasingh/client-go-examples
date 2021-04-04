@@ -1,6 +1,6 @@
 # client-go-examples
 
-I created this repo as I wanted to learn using client-go for accessing Kubernetes API
+I created this repo as I wanted to learn using ```client-go``` library for accessing Kubernetes API
 
 # Instructions to use
 
