@@ -22,6 +22,22 @@ reetasingh:practice-client-go reetasingh$ go run cmd/list_namespaces/main.go
 
 ```
 
+List pods with label run=abc
+```bash
+reetasingh:practice-client-go reetasingh$ go run cmd/list_pods_with_label_in_namespace/main.go 
+There are 1 pods in the cluster
+Pod name abc
+Namespace default
+ResourceVersion 735549
+Number of containers = 1
+Containers
+    Container Name abc
+    Container Image nginx
+Labels map[run:abc]
+Annotations map[]
+==================
+```
+
 for other actions check the ```cmd``` directory
 
 
