@@ -6,7 +6,7 @@ I created this repo as I wanted to learn using ```client-go``` library for acces
 
 Install
 ```bash
-go get github.com/reetasingh/client-go-examples
+git clone https://github.com/reetasingh/client-go-examples.git
 ```
 
 List Pods
