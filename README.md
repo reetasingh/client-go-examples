@@ -38,6 +38,28 @@ Annotations map[]
 ==================
 ```
 
+Watch event on pod (Added/Modified/Deleted)
+```bash
+reetasingh-ltm8:practice-client-go reetasingh$ go run cmd/watch_pods/main.go 
+pod name abc - 
+resource version 745618
+Pod added
+pod name abc - 
+resource version 745662
+Pod modified
+pod name abc - 
+resource version 745666
+Pod modified
+pod name abc - 
+resource version 745685
+Pod modified
+pod name abc - 
+resource version 745686
+Pod deleted
+^Z
+
+```
+
 for other actions check the ```cmd``` directory
 
 
