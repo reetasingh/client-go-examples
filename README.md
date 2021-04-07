@@ -60,6 +60,22 @@ Pod deleted
 
 ```
 
+Get pod 
+```bash
+reetasingh:practice-client-go reetasingh$ go run cmd/get_pod/main.go 
+Pod name abc
+Namespace default
+ResourceVersion 779828
+Number of containers = 1
+Containers
+    Container Name abc
+    Container Image nginx
+Labels map[run:abc]
+Annotations map[]
+==================
+
+```
+
 for other actions check the ```cmd``` directory
 
 
