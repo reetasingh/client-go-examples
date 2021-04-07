@@ -11,20 +11,20 @@ git clone https://github.com/reetasingh/client-go-examples.git
 
 # Examples
 
-List Pods
+## List Pods
 
 ```bash
 reetasingh:practice-client-go reetasingh$ go run cmd/list_pods/main.go 
 ```
 
-List Namespaces
+## List Namespaces
 
 ```bash
 reetasingh:practice-client-go reetasingh$ go run cmd/list_namespaces/main.go 
 
 ```
 
-List pods with label run=abc
+## List pods with label run=abc
 ```bash
 reetasingh:practice-client-go reetasingh$ go run cmd/list_pods_with_label_in_namespace/main.go 
 There are 1 pods in the cluster
@@ -40,7 +40,7 @@ Annotations map[]
 ==================
 ```
 
-Watch event on pod (Added/Modified/Deleted)
+## Watch event on pod (Added/Modified/Deleted)
 ```bash
 reetasingh-ltm8:practice-client-go reetasingh$ go run cmd/watch_pods/main.go 
 pod name abc - 
@@ -62,7 +62,7 @@ Pod deleted
 
 ```
 
-Get pod 
+## Get pod 
 ```bash
 reetasingh:practice-client-go reetasingh$ go run cmd/get_pod/main.go 
 Pod name abc
