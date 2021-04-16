@@ -31,7 +31,7 @@ func main() {
 
 	var job *batchv1.Job
 	job = new(batchv1.Job)
-	job.Name = "my-first-k8s-pod"
+	job.Name = "my-first-k8s-job"
 	var container v1.Container
 	container.Name = "my-first-pod-container"
 	container.Image = "nginx"
