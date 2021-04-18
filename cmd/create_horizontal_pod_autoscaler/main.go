@@ -90,11 +90,14 @@ func main() {
 	autoscaler.Spec.TargetCPUUtilizationPercentage =&cpuPercentage
 	autoscaler.Spec.ScaleTargetRef.Name = DEPLOYMENT_NAME
 	autoscaler.Spec.ScaleTargetRef.Kind = "Deployment"
+	autoscaler.ObjectMeta.Name = "example-autoscaler"
 
 	// Create autoscaler
-	autoscalers, err := clientset.AutoscalingV1().HorizontalPodAutoscaler("default").Create(context.TODO(), autoscaler, metav1.CreateOptions{})
+	autoscalers, err := clientset.AutoscalingV1().HorizontalPodAutoscalers("default").Create(context.TODO(), autoscaler, metav1.CreateOptions{})
 	if err != nil {
 		panic(err.Error())
 	}
+
+	fmt.Println(autoscalers)
 
 }
