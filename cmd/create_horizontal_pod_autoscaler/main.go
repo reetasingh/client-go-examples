@@ -33,7 +33,7 @@ func main() {
 		panic(err.Error())
 	}
 
-    # step 1 create deployment
+    // step 1 create deployment
 
 	var deployment *appsv1.Deployment
 	deployment = new(appsv1.Deployment)
@@ -77,19 +77,22 @@ func main() {
 	fmt.Println(deployments)
 
 
-	# step 2 create HPA - horizontal pod autoscaling
+	// step 2 create HPA - horizontal pod autoscaling
 
 	var autoscaler  *autoscalingv1.HorizontalPodAutoscaler
 	autoscaler = new(autoscalingv1.HorizontalPodAutoscaler)
 
-	autoscaler.Spec.MinReplicas == 2
-	autoscaler.Spec.MaxReplicas == 4
-	autoscaler.Spec.TargetCPUUtilizationPercentage =50
-	autoscaler.ScaleTargetRef.Name = DEPLOYMENT_NAME
-	autoscaler.ScaleTargetRef.Kind = "Deployment"
+    var minReplicas int32 = 2
+    var cpuPercentage int32 = 50
+
+	autoscaler.Spec.MinReplicas = &minReplicas
+	autoscaler.Spec.MaxReplicas = 4
+	autoscaler.Spec.TargetCPUUtilizationPercentage =&cpuPercentage
+	autoscaler.Spec.ScaleTargetRef.Name = DEPLOYMENT_NAME
+	autoscaler.Spec.ScaleTargetRef.Kind = "Deployment"
 
 	// Create autoscaler
-	autoscalers, err := clientset.AutoScalingV1().HorizontalPodAutoscaler("default").Create(context.TODO(), autoscaler, metav1.CreateOptions{})
+	autoscalers, err := clientset.AutoscalingV1().HorizontalPodAutoscaler("default").Create(context.TODO(), autoscaler, metav1.CreateOptions{})
 	if err != nil {
 		panic(err.Error())
 	}
